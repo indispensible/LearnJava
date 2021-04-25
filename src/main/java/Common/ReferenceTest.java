@@ -1,3 +1,5 @@
+package Common;
+
 import java.lang.ref.WeakReference;
 
 /**
@@ -7,10 +9,10 @@ import java.lang.ref.WeakReference;
 public class ReferenceTest {
     public static void weakReferenceTest() {
         String str = "有强引用对象不会被清理";
-        WeakReference<String> weak1 = new WeakReference<>(str);
-        WeakReference<String> weak2 = new WeakReference<>(new String("没有强引用对象会被清理"));
+        WeakReference<String> weak1 = new WeakReference<String>(str);
+        WeakReference<String> weak2 = new WeakReference<String>(new String("没有强引用对象会被清理"));
         // 字符串常量池中存的是引用
-        WeakReference<String> weak3 = new WeakReference<>("字符串常量池中常量引用是强引用不会被GC");
+        WeakReference<String> weak3 = new WeakReference<String>("字符串常量池中常量引用是强引用不会被GC");
         System.gc();
 
         if (weak1.get() == null) {
